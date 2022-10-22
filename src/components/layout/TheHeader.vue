@@ -10,7 +10,7 @@
           <router-link to="/signup" v-else>Sign Up</router-link>
         </li>
         <li>
-          <router-link to="/" v-if="login">Quotes</router-link>
+          <router-link to="/quotes" v-if="login">Quotes</router-link>
           <router-link to="/signin" v-else>Sign In</router-link>
         </li>
         <li>
