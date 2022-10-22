@@ -3,8 +3,8 @@ import SignIn from "@/pages/signin/SignIn";
 import SignUp from "@/pages/signup/SignUp";
 import store from "@/store/index";
 import SuppliersList from "@/pages/suppliers/SuppliersList";
-import HelloWorld from "@/components/HelloWorld";
 import SupplierDetails from "@/pages/suppliers/SupplierDetails";
+import QuotesList from "@/pages/quotes/QuotesList";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -13,7 +13,7 @@ const router = createRouter({
         { path: '/signin', component: SignIn, meta: { unauthorised: true } },
         { path: '/signup', component: SignUp, meta: { unauthorised: true } },
         { path: '/suppliers', component: SuppliersList, meta: { authorised: true } },
-        { path: '/quotes', component: HelloWorld, meta: { authorised: true } },
+        { path: '/quotes', component: QuotesList, meta: { authorised: true } },
         {
             path: '/suppliers/:id',
             component: SupplierDetails,

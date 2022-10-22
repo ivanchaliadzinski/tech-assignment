@@ -1,17 +1,12 @@
 <template>
-  <li @click="navigateSupplierDetials">
+  <li>
     <h3>{{`${id} - ${name}`}}</h3>
   </li>
 </template>
 
 <script>
 export default {
-  props: ['id', 'name', 'router'],
-  methods: {
-    navigateSupplierDetials() {
-      this.router.replace(`/suppliers/${this.id}`);
-    },
-  },
+  props: ['id', 'name'],
 };
 </script>
 
