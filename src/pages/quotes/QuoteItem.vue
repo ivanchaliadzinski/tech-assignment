@@ -1,12 +1,15 @@
 <template>
   <li>
-    <h3>{{`${id} - ${name}`}}</h3>
+    <div class="wrapper">
+      <h3>{{`${id} - ${title}`}}</h3>
+      <h4>{{`Created: ${created}`}}</h4>
+    </div>
   </li>
 </template>
 
 <script>
 export default {
-  props: ['id', 'name'],
+  props: ['id', 'title', 'created'],
 };
 </script>
 
@@ -20,10 +23,6 @@ li {
   border-radius: 12px;
   padding: 1rem;
   cursor: pointer;
-}
-
-div {
-  margin: 0.5rem 0;
 }
 
 </style>

@@ -13,7 +13,8 @@
           <quote-item
               v-for="quote in quotes"
               :key="quote.id"
-              :name="quote.title"
+              :title="quote.title"
+              :created="quote.created"
               :id="quote.id"
           ></quote-item>
         </ul>
