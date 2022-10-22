@@ -7,11 +7,11 @@
       <ul>
         <li>
           <router-link to="/" v-if="login">Suppliers</router-link>
-          <router-link to="/signin" v-else>Sign In</router-link>
+          <router-link to="/" v-else>Sign Up</router-link>
         </li>
         <li>
           <router-link to="/" v-if="login">Quotes</router-link>
-          <router-link to="/" v-else>Sign Up</router-link>
+          <router-link to="/signin" v-else>Sign In</router-link>
         </li>
         <li>
           <base-button v-if="login" @click="$emit('logout')">Logout</base-button>

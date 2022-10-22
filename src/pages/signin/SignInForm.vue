@@ -40,7 +40,7 @@ export default {
       formIsValid: true,
     };
   },
-  emits: ['sign-in'],
+  emits: ['login'],
   methods: {
     clearValidation(input) {
       this[input].isValid = true;
@@ -66,7 +66,7 @@ export default {
         password: this.password.value,
       };
 
-      this.$emit('sign-in', body);
+      this.$emit('login', body);
     },
   },
 };

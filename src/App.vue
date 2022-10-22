@@ -1,7 +1,7 @@
 <template>
   <the-header
-      :login="false"
-      @logout="logout"
+      :login="isAuthenticated"
+      @logout="systemLogout"
   ></the-header>
   <router-view v-slot="slotProps">
     <transition name="route" mode="out-in">
@@ -12,22 +12,23 @@
 
 <script>
 import TheHeader from '@/components/layout/TheHeader';
-// import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   components: {
     TheHeader
   },
   created() {
-    // this.$store.dispatch
+    this.$store.dispatch('user/checkToken');
   },
   computed: {
-    // ...mapGetters('user')
+    ...mapGetters('user',['isAuthenticated'])
 
   },
   methods: {
-    // ...mapActions('user')
-    logout() {
+    ...mapActions('user',['logout']),
+    systemLogout() {
+      this.logout();
       this.$router.replace('/');
     }
   }
