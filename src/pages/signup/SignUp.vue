@@ -8,29 +8,29 @@
     <section>
       <base-card>
         <div class="header">
-          <h2>Sign In</h2>
+          <h2>Sign Up</h2>
         </div>
-        <sign-in-form @login="systemLogin"></sign-in-form>
+        <sign-up-form @signup="systemRegister"></sign-up-form>
       </base-card>
     </section>
   </div>
 </template>
 
 <script>
-import SignInForm from './SignInForm';
+import SignUpForm from './SignUpForm';
 import { mapActions, mapGetters } from 'vuex';
 import exportErrorMessage from "@/utils/exportErrorMessage";
 export default {
   components: {
-    SignInForm,
+    SignUpForm,
   },
   computed: {
     ...mapGetters('user', ['error', 'isLoading']),
   },
   methods: {
-    ...mapActions('user', ['login', 'clearError']),
-    systemLogin(data) {
-      this.login(data).then(() => {
+    ...mapActions('user', ['register', 'clearError']),
+    systemRegister(data) {
+      this.register(data).then(() => {
         this.$router.replace('/suppliers');
       });
     },
@@ -48,4 +48,5 @@ export default {
   justify-content: center;
 }
 </style>
+
 

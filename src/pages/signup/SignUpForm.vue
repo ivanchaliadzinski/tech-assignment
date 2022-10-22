@@ -14,18 +14,50 @@
       <input
           type="password"
           id="password"
-          placeholder="**********"
+          placeholder="********"
           v-model.trim="password.value"
           @blur="clearValidation('password')"
       />
       <p v-if="!password.isValid">Enter Password.</p>
     </div>
-    <base-button>Sign In</base-button>
+    <div class="form-control" :class="{invalid: !firstName.isValid}">
+      <input
+          type="text"
+          id="firstname"
+          placeholder="Ivan"
+          v-model.trim="firstName.value"
+          @blur="clearValidation('firstName')"
+      />
+      <p v-if="!firstName.isValid">Enter First Name.</p>
+    </div>
+    <div class="form-control" :class="{invalid: !lastName.isValid}">
+      <input
+          type="text"
+          id="lastname"
+          placeholder="Chaliadzinski"
+          v-model.trim="lastName.value"
+          @blur="clearValidation('lastName')"
+      />
+      <p v-if="!lastName.isValid">Enter Last Name.</p>
+    </div>
+    <div class="form-control" :class="{invalid: !email.isValid}">
+      <input
+          type="email"
+          id="email"
+          placeholder="ivan.chaliadzinski@leverx.com"
+          v-model.trim="email.value"
+          @blur="clearValidation('email')"
+      />
+      <p v-if="!email.isValid">Enter Email or provide valid Email.</p>
+    </div>
+    <base-button>Sign Up</base-button>
   </form>
 </template>
 
 <script>
+import {EMAIL_REGEX} from "@/constants/EmailRegex";
 export default {
+  emits: ['signup'],
   data() {
     return {
       username: {
@@ -36,10 +68,21 @@ export default {
         value: '',
         isValid: true,
       },
+      firstName: {
+        value: '',
+        isValid: true,
+      },
+      lastName: {
+        value: '',
+        isValid: true,
+      },
+      email: {
+        value: '',
+        isValid: true,
+      },
       formIsValid: true,
     };
   },
-  emits: ['login'],
   methods: {
     clearValidation(input) {
       this[input].isValid = true;
@@ -54,18 +97,35 @@ export default {
         this.password.isValid = false;
         this.formIsValid = false;
       }
+      if (this.firstName.value === '') {
+        this.firstName.isValid = false;
+        this.formIsValid = false;
+      }
+      if (this.lastName.value === '') {
+        this.lastName.isValid = false;
+        this.formIsValid = false;
+      }
+      if (this.email.value === '' || !this.email.value.toLowerCase().match(EMAIL_REGEX)) {
+        this.email.isValid = false;
+        this.formIsValid = false;
+      }
     },
     submitForm() {
       this.validateForm();
+
       if (!this.formIsValid) {
         return;
       }
+
       const body = {
         username: this.username.value,
         password: this.password.value,
+        first_name: this.firstName.value,
+        last_name: this.lastName.value,
+        email: this.email.value,
       };
 
-      this.$emit('login', body);
+      this.$emit('signup', body);
     },
   },
 };
@@ -106,4 +166,3 @@ button, a {
   margin-left: 80%;
 }
 </style>
-

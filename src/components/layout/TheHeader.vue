@@ -6,8 +6,8 @@
       </h1>
       <ul>
         <li>
-          <router-link to="/" v-if="login">Suppliers</router-link>
-          <router-link to="/" v-else>Sign Up</router-link>
+          <router-link to="/suppliers" v-if="login">Suppliers</router-link>
+          <router-link to="/signup" v-else>Sign Up</router-link>
         </li>
         <li>
           <router-link to="/" v-if="login">Quotes</router-link>
