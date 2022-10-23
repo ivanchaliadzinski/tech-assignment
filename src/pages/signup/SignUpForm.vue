@@ -24,7 +24,7 @@
       <input
           type="text"
           id="firstname"
-          placeholder="Ivan"
+          placeholder="First Name"
           v-model.trim="firstName.value"
           @blur="clearValidation('firstName')"
       />
@@ -34,7 +34,7 @@
       <input
           type="text"
           id="lastname"
-          placeholder="Chaliadzinski"
+          placeholder="Last Name"
           v-model.trim="lastName.value"
           @blur="clearValidation('lastName')"
       />
@@ -44,7 +44,7 @@
       <input
           type="email"
           id="email"
-          placeholder="ivan.chaliadzinski@leverx.com"
+          placeholder="your.mail@domen.com"
           v-model.trim="email.value"
           @blur="clearValidation('email')"
       />
