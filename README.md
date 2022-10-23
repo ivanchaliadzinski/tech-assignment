@@ -1,5 +1,7 @@
 ## Technical assignment
+
 [Task](https://gist.github.com/martinOpply/54d1f5c134991b27028312621b50ee46)
+
 [Deployment](https://ivanchaliadzinski.github.io/tech-assignment/)
 
 ## Project setup
