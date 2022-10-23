@@ -10,6 +10,7 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', redirect: '/signin' },
+        { path: '/tech-assignment/', redirect: '/signin' },
         { path: '/signin', component: SignIn, meta: { unauthorised: true } },
         { path: '/signup', component: SignUp, meta: { unauthorised: true } },
         { path: '/suppliers', component: SuppliersList, meta: { authorised: true } },
